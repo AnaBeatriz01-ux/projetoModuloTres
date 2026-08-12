@@ -1,17 +1,11 @@
 <?php
     session_start();
 
-?> 
+    require_once 'includes/header.php'; 
+    require_once 'includes/nav.php'; 
 
-<DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>heartbeasties</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-</head>
-<body>
+
+?> 
 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
@@ -19,46 +13,29 @@
     <!-- nome do site -->
 
     <?php
-        $nome = "heartbeasties";
-        require 'includes/sobre.php';
-        require 'includes/produtos.php';
-        require 'includes/contato.php';
-        require 'includes/termos.php';
+        $nome = "Heartbeasties";
 
-        echo "<h1>Bem-vindo ao $nome!</h1>";
+        echo "<h1 class='display-4 fw-bold text-center'>Bem-vindo ao $nome!</h1>";
     ?>
 
     <!-- menu de navegação -->
+     <?php
+        require_once 'includes/nav.php';
 
-    <section class="menu">
-        <nav>
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#">Produtos</a></li>
-                <li><a href="#">Contato</a></li>
-                <li><a href="#">Termos de Contrato</a></li>
-                
-            </ul>
-        </nav>
+        ?>
 
     <!-- Deus oq eu to fazendo -->
-
-    <h2> A melhor Loja Geek que voce vai conhecer.</h2>
-
-
-    <p>Descubra as figures dos seus sonhos por um preco que cabe no bolso.</p>
     
-    <section class="hero">
+    <section class="hero bg-dark text-white text-center py-5 rounded-3 shadow-sm my-4">
 
     <div class="container">
         <!-- Icone da loja -->
          <!-- recriado a partir do codigo antigo -->
 
-         <div class="icone">
+         <div class="icone mb-3">
             <div class="preview-icone">
                 <!-- bootstrap pra icone -->
-                 <i class="bi bi-person-circle"></i>
+                 <i class="bi bi-person-circle display-1 text-danger"></i>
             </div>
         </div>
     </div>
@@ -67,9 +44,13 @@
 
 <!-- pagina de conteudo, sujeito a modificacao -->
 
-    <h2> HEARTBEASTIES </h2>
+    <h2 class="display-4 fw-bold mb-2"> HEARTBEASTIES </h2>
 
-    <p> Suas compras no precinho de um sonho ! </p>
+    <p class="fw-semi-bold fs-4 text-warning"> Suas compras no precinho de um sonho ! </p>
+
+<a href="produtos.php" class="btn btn-primary">
+    Explorar Figures
+</a>
 
 </div>
 
@@ -81,17 +62,66 @@
 <section class="produtos">
 
 <!-- pai afasta de mim esse calice (a ponte) -->
-<!-- eu no sabo oq estou fazendo pfv piedade em minha alma -->
+<!-- eu no sabo oq estou fazendo pfv piedade da minha alma -->
 
-    <div class="container">
+    <div class="container my-5">
 
-        <div class="section-title">
-            <span>PRODUTOS<span>
+    
+    <div class="section-title text-center mb-4">
+        <span class="fw-bold fs-3 text-white">PRODUTOS</span>
+        <p class="fw-semibold fs-4 text-warning">Confira nossos produtos !!</p>
+    </div>
+    
+   
+    <div class="row g-4">
+
+        <!-- Card 1 -->
+        <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <img src="imgs/figura1.jpg" class="card-img-top" alt="Figura 1">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Figura 1</h5>
+                    <p class="card-text text-muted">Descrição da Figura 1.</p>
+                    <p class="card-text fw-bold text-danger fs-5">R$ 299,99</p>
+                    <a href="#" class="btn btn-primary w-100">Comprar</a>
+                </div>
+            </div>
+        </div> <!-- Fecha o Card 1 -->
+
+        <!-- Card 2 -->
+        <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <img src="imgs/figura1.jpg" class="card-img-top" alt="Figura 2">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Figura 2</h5>
+                    <p class="card-text text-muted">Descrição da Figura 2.</p>
+                    <p class="card-text fw-bold text-danger fs-5">R$ 199,99</p>
+                    <a href="#" class="btn btn-primary w-100">Comprar</a>
+                </div>
+            </div>
+        </div> <!-- fecha o Card 2 -->
+
+        <!-- Card 3 -->
+        <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm border-0">
+                <img src="imgs/figura1.jpg" class="card-img-top" alt="Figura 3">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Figura 3</h5>
+                    <p class="card-text text-muted">Descrição da Figura 3.</p>
+                    <p class="card-text fw-bold text-danger fs-5">R$ 1500,99</p>
+                    <a href="#" class="btn btn-primary w-100">Comprar</a>
+                </div>
+            </div>
         </div>
-        
-        <div class="product-grid">
-            
 
+    </div> 
+
+</div> 
+
+<?php
+    require_once 'includes/footer.php';
+
+?>
 
 </body>
 </html>
