@@ -18,19 +18,13 @@
         echo "<h1 class='display-4 fw-bold text-center'>Bem-vindo ao $nome!</h1>";
     ?>
 
-    <!-- menu de navegação -->
-     <?php
-        require_once 'includes/nav.php';
-
-        ?>
-
     <!-- Deus oq eu to fazendo -->
     
     <section class="hero bg-dark text-white text-center py-5 rounded-3 shadow-sm my-4">
 
     <div class="container">
         <!-- Icone da loja -->
-         <!-- recriado a partir do codigo antigo -->
+         
 
          <div class="icone mb-3">
             <div class="preview-icone">
@@ -68,7 +62,7 @@
 
     
     <div class="section-title text-center mb-4">
-        <span class="fw-bold fs-3 text-white">PRODUTOS</span>
+        <span class="fw-bold fs-3 text-danger">PRODUTOS</span>
         <p class="fw-semibold fs-4 text-warning">Confira nossos produtos !!</p>
     </div>
     
@@ -108,7 +102,7 @@
                 <div class="card-body text-center">
                     <h5 class="card-title fw-bold">Figura 3</h5>
                     <p class="card-text text-muted">Descrição da Figura 3.</p>
-                    <p class="card-text fw-bold text-danger fs-5">R$ 1500,99</p>
+                    <p class="card-text fw-bold text-danger fs-5">R$ 1.500,99</p>
                     <a href="#" class="btn btn-primary w-100">Comprar</a>
                 </div>
             </div>
@@ -122,7 +116,3 @@
     require_once 'includes/footer.php';
 
 ?>
-
-</body>
-</html>
-
