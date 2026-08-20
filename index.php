@@ -24,7 +24,7 @@
 
     <div class="container">
         <!-- Icone da loja -->
-         
+         <!-- recriado a partir do codigo antigo -->
 
          <div class="icone mb-3">
             <div class="preview-icone">
