@@ -1,0 +1,494 @@
+/* ============================================================
+   HEARTBEASTIES — Design System
+   Loja de figures colecionáveis — clima fofo, aconchegante e "de vitrine"
+   Paleta: Beige, Vanilla Custard, Golden Apricot, Olive Wood, Midnight Violet
+   ============================================================ */
+
+:root {
+  /* --- Paleta base --- */
+  --hb-beige: #F2F5E2;
+  --hb-vanilla: #E3DEA4;
+  --hb-apricot: #D4954D;
+  --hb-olive: #775533;
+  --hb-olive-dark: #5A3F26;
+  --hb-midnight: #290024;
+  --hb-white: #FFFFFF;
+
+  /* --- Papéis semânticos --- */
+  --hb-bg: var(--hb-beige);
+  --hb-surface: var(--hb-white);
+  --hb-surface-alt: var(--hb-vanilla);
+  --hb-text: var(--hb-olive-dark);
+  --hb-text-muted: #8A7458;
+  --hb-accent: var(--hb-apricot);
+  --hb-brand: var(--hb-olive);
+  --hb-deep: var(--hb-midnight);
+
+  --hb-radius-sm: .6rem;
+  --hb-radius: 1.1rem;
+  --hb-radius-lg: 1.75rem;
+
+  --hb-shadow-sm: 0 2px 10px rgba(119, 85, 51, .10);
+  --hb-shadow: 0 10px 30px rgba(119, 85, 51, .14);
+  --hb-shadow-lift: 0 18px 34px rgba(119, 85, 51, .22);
+
+  /* --- Sobrescreve as variáveis do Bootstrap 5.3 --- */
+  --bs-body-bg: var(--hb-bg);
+  --bs-body-color: var(--hb-text);
+  --bs-primary: var(--hb-olive);
+  --bs-primary-rgb: 119, 85, 51;
+  --bs-secondary: var(--hb-text-muted);
+  --bs-success: #7A9257;
+  --bs-danger: var(--hb-olive);
+  --bs-danger-rgb: 119, 85, 51;
+  --bs-warning: var(--hb-apricot);
+  --bs-warning-rgb: 212, 149, 77;
+  --bs-light: var(--hb-vanilla);
+  --bs-light-rgb: 227, 222, 164;
+  --bs-dark: var(--hb-midnight);
+  --bs-dark-rgb: 41, 0, 36;
+  --bs-border-color: rgba(119, 85, 51, .18);
+  --bs-border-radius: var(--hb-radius-sm);
+  --bs-border-radius-lg: var(--hb-radius);
+  --bs-box-shadow-sm: var(--hb-shadow-sm);
+  --bs-box-shadow: var(--hb-shadow);
+  --bs-link-color: var(--hb-olive);
+  --bs-link-hover-color: var(--hb-apricot);
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--hb-bg);
+  color: var(--hb-text);
+  background-image:
+    radial-gradient(circle at 6% 12%, rgba(212, 149, 77, .10) 0, transparent 40%),
+    radial-gradient(circle at 96% 8%, rgba(227, 222, 164, .55) 0, transparent 38%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar-brand,
+.btn,
+.section-title {
+  font-family: 'Fredoka', sans-serif;
+  letter-spacing: .2px;
+}
+
+a { transition: color .2s ease; }
+
+/* foco visível e acessível em qualquer elemento interativo */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--hb-apricot);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* utilitários de largura, substituem os style="max-width" antigos */
+.container-narrow-md { max-width: 800px; }
+.container-narrow-sm { max-width: 700px; }
+
+/* ============================================================
+   Navbar
+   ============================================================ */
+
+.navbar.bg-light {
+  background-color: rgba(242, 245, 226, .92) !important;
+  backdrop-filter: blur(8px);
+  border-bottom-color: rgba(119, 85, 51, .15) !important;
+}
+
+.navbar-brand {
+  color: var(--hb-brand) !important;
+}
+
+.navbar-nav .nav-link {
+  color: var(--hb-text) !important;
+  border-radius: 999px;
+  padding-inline: .9rem !important;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  background: rgba(212, 149, 77, .16);
+  color: var(--hb-olive) !important;
+}
+
+.navbar-nav .nav-link.active {
+  background: var(--hb-olive);
+  color: var(--hb-white) !important;
+}
+
+.btn-outline-danger {
+  --bs-btn-color: var(--hb-olive);
+  --bs-btn-border-color: var(--hb-olive);
+  --bs-btn-hover-bg: var(--hb-olive);
+  --bs-btn-hover-border-color: var(--hb-olive);
+}
+
+/* ============================================================
+   Botões — cápsula, cheios de personalidade
+   ============================================================ */
+
+.btn {
+  border-radius: 999px;
+  font-weight: 600;
+  padding: .55rem 1.4rem;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--hb-olive);
+  --bs-btn-border-color: var(--hb-olive);
+  --bs-btn-hover-bg: var(--hb-apricot);
+  --bs-btn-hover-border-color: var(--hb-apricot);
+  --bs-btn-active-bg: var(--hb-olive-dark);
+  box-shadow: var(--hb-shadow-sm);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--hb-shadow-lift);
+}
+
+/* ============================================================
+   Hero — o momento de vitrine
+   ============================================================ */
+
+.hero.bg-dark {
+  background: radial-gradient(circle at 15% -10%, #A9764A 0%, var(--hb-olive) 45%, var(--hb-olive-dark) 100%) !important;
+  position: relative;
+  overflow: hidden;
+  border: none !important;
+  border-radius: var(--hb-radius-lg) !important;
+  max-width: 1140px;
+  margin: 2rem auto !important;
+  box-shadow: var(--hb-shadow-lift);
+}
+
+.hero.bg-dark::before,
+.hero.bg-dark::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: .55;
+}
+
+.hero.bg-dark::before {
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(227, 222, 164, .45), transparent 70%);
+  top: -80px; left: -60px;
+}
+
+.hero.bg-dark::after {
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(212, 149, 77, .4), transparent 70%);
+  bottom: -120px; right: -60px;
+}
+
+.hero .container, .hero-content { position: relative; z-index: 1; }
+
+.hero .preview-icone i {
+  color: var(--hb-vanilla) !important;
+  filter: drop-shadow(0 6px 14px rgba(41, 0, 36, .35));
+}
+
+.hero .text-warning { color: var(--hb-vanilla) !important; }
+
+.hero .btn-primary {
+  background: var(--hb-vanilla);
+  border-color: var(--hb-vanilla);
+  color: var(--hb-olive-dark);
+}
+
+.hero .btn-primary:hover {
+  background: var(--hb-apricot);
+  border-color: var(--hb-apricot);
+  color: var(--hb-white);
+}
+
+@media (max-width: 576px) {
+  .hero.bg-dark { margin: 1rem !important; border-radius: var(--hb-radius) !important; }
+}
+
+.hero .btn-primary:hover {
+  background: var(--hb-vanilla);
+  border-color: var(--hb-vanilla);
+}
+
+/* ============================================================
+   Título de seção
+   ============================================================ */
+
+.section-title .text-danger {
+  color: var(--hb-brand) !important;
+  position: relative;
+  display: inline-block;
+  padding-bottom: .35rem;
+}
+
+.section-title .text-danger::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--hb-apricot);
+}
+
+.section-title .text-warning { color: var(--hb-olive) !important; opacity: .8; }
+
+/* ============================================================
+   Cards de produto — vitrine estilo "blister pack"
+   ============================================================ */
+
+.card {
+  border-radius: var(--hb-radius) !important;
+  background-color: var(--hb-surface);
+  box-shadow: var(--hb-shadow-sm) !important;
+  transition: transform .25s ease, box-shadow .25s ease;
+  overflow: hidden;
+}
+
+.produtos .card:hover,
+.card:has(.card-img-top):hover {
+  transform: translateY(-6px);
+  box-shadow: var(--hb-shadow-lift) !important;
+}
+
+.card-img-top {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--hb-vanilla);
+  padding: .6rem;
+  border-radius: var(--hb-radius) var(--hb-radius) 0 0 !important;
+}
+
+.card-title {
+  color: var(--hb-brand);
+}
+
+.card-text.text-muted { color: var(--hb-text-muted) !important; }
+
+.card-text.text-danger {
+  color: var(--hb-apricot) !important;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+footer.bg-light {
+  background-color: var(--hb-vanilla) !important;
+  border-top-color: rgba(119, 85, 51, .2) !important;
+}
+
+footer .text-danger { color: var(--hb-brand) !important; }
+footer .text-muted { color: var(--hb-text-muted) !important; }
+
+footer a.hover-pink,
+footer .text-secondary {
+  color: var(--hb-text) !important;
+}
+
+footer a:hover { color: var(--hb-apricot) !important; }
+
+/* ============================================================
+   Formulários (contato, termos, etc.)
+   ============================================================ */
+
+.form-control, .form-select {
+  border-radius: var(--hb-radius-sm);
+  border-color: rgba(119, 85, 51, .25);
+  background-color: var(--hb-surface);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--hb-apricot);
+  box-shadow: 0 0 0 .2rem rgba(212, 149, 77, .25);
+}
+
+/* ============================================================
+   Painel Admin
+   ============================================================ */
+
+.admin-sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--hb-midnight) 0%, #3B0A38 100%);
+}
+
+.admin-sidebar a {
+  color: var(--hb-vanilla);
+  text-decoration: none;
+  display: block;
+  padding: .65rem 1rem;
+  border-radius: .7rem;
+  margin-bottom: .2rem;
+  transition: background-color .2s ease, color .2s ease;
+}
+
+.admin-sidebar a.active,
+.admin-sidebar a:hover {
+  background: rgba(212, 149, 77, .25);
+  color: var(--hb-white);
+}
+
+.admin-sidebar .brand {
+  color: var(--hb-white);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+main.flex-fill {
+  background-color: var(--hb-bg);
+}
+
+/* ============================================================
+   Estampinha de fundo — pontinhos e coraçõezinhos sutis
+   ============================================================ */
+
+.hb-pattern {
+  position: relative;
+  background-image:
+    radial-gradient(circle, rgba(119, 85, 51, .12) 1.5px, transparent 1.6px),
+    radial-gradient(circle, rgba(212, 149, 77, .14) 1.5px, transparent 1.6px);
+  background-size: 26px 26px, 26px 26px;
+  background-position: 0 0, 13px 13px;
+}
+
+/* ============================================================
+   Selo de colecionador — recorte tipo "flor" (estilo Kuma Koko)
+   ============================================================ */
+
+.hb-seal {
+  --seal-size: 46px;
+  width: var(--seal-size);
+  height: var(--seal-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--hb-apricot);
+  color: var(--hb-white);
+  font-size: 1.1rem;
+  clip-path: polygon(
+    50% 0%, 63% 7%, 76% 2%, 84% 13%, 98% 15%, 96% 29%, 100% 41%,
+    88% 50%, 100% 59%, 96% 71%, 98% 85%, 84% 87%, 76% 98%, 63% 93%,
+    50% 100%, 37% 93%, 24% 98%, 16% 87%, 2% 85%, 4% 71%, 0% 59%,
+    12% 50%, 0% 41%, 4% 29%, 2% 15%, 16% 13%, 24% 2%, 37% 7%
+  );
+  box-shadow: 0 4px 12px rgba(41, 0, 36, .25);
+}
+
+.hb-seal-sm {
+  --seal-size: 30px;
+  font-size: .75rem;
+}
+
+/* selo aplicado ao coraçãozinho da marca */
+.navbar-brand i.bi-heart-fill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================================
+   Moldura circular de foto — estilo vitrine de embalagem
+   ============================================================ */
+
+.hb-photo-frame {
+  position: relative;
+  width: 78%;
+  aspect-ratio: 1 / 1;
+  margin: 1.4rem auto .4rem;
+  border-radius: 50%;
+  background: var(--hb-vanilla);
+  border: 6px solid var(--hb-white);
+  box-shadow: var(--hb-shadow), inset 0 0 0 2px rgba(119, 85, 51, .1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hb-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hb-photo-frame .hb-seal {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+}
+
+/* ============================================================
+   Etiqueta de destaque — "ribbon" de canto
+   ============================================================ */
+
+.hb-tag {
+  position: absolute;
+  top: 14px;
+  left: -8px;
+  z-index: 2;
+  background: var(--hb-olive);
+  color: var(--hb-vanilla);
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: .78rem;
+  padding: .35rem .8rem .35rem .95rem;
+  border-radius: 0 999px 999px 0;
+  box-shadow: var(--hb-shadow-sm);
+}
+
+.hb-tag::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  border-width: 6px 4px 0 0;
+  border-style: solid;
+  border-color: var(--hb-olive-dark) transparent transparent transparent;
+}
+
+.hb-tag.hb-tag-accent { background: var(--hb-apricot); color: var(--hb-white); }
+.hb-tag.hb-tag-accent::before { border-color: #A9683A transparent transparent transparent; }
+
+.card { position: relative; }
+
+/* ============================================================
+   Faixa de banner — destaque antes do rodapé
+   ============================================================ */
+
+.promo-strip {
+  background: linear-gradient(90deg, var(--hb-olive) 0%, var(--hb-apricot) 100%);
+  color: var(--hb-white);
+  text-align: center;
+  padding: 1.4rem 1rem;
+  border-radius: var(--hb-radius);
+  margin: 3rem auto 1rem;
+  max-width: 1140px;
+  box-shadow: var(--hb-shadow);
+}
+
+.promo-strip p {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin: 0;
+  letter-spacing: .2px;
+}

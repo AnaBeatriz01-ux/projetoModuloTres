@@ -2,7 +2,7 @@
     <div class="container text-center text-md-start">
         <div class="row g-4">
 
-            <!-- Coluna 1: Sobre a Loja -->
+            <!-- Sobre a Loja -->
             <div class="col-12 col-md-4">
                 <h5 class="fw-bold text-danger mb-3">
                     <i class="bi bi-heart-fill text-danger me-1"></i> HEARTBEASTIES
@@ -12,7 +12,7 @@
                 </p>
             </div>
 
-            <!-- Coluna 2: Navegação -->
+            <!--  Navegação -->
             <div class="col-12 col-md-4">
                 <h6 class="fw-bold text-danger mb-3">Links Rápidos</h6>
                 <ul class="list-unstyled">
@@ -23,7 +23,7 @@
                 </ul>
             </div>
 
-            <!-- Coluna 3: Redes Sociais -->
+            <!-- CRedes Sociais -->
             <div class="col-12 col-md-4 text-center text-md-start">
                 <h6 class="fw-bold text-danger mb-3">Nossa Comunidade</h6>
                 <p class="text-muted small mb-2">Vem acompanhar as novidades de perto:</p>
@@ -48,6 +48,8 @@
         </div>
     </div>
 </footer>
+
+//isso ta com tanta carinha daquelas lojinhas de scam do tiktok
 
 <!-- Script do Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

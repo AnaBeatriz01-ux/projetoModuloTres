@@ -53,7 +53,7 @@
 
 <!-- produtos (question mark??)-->
 
-<section class="produtos">
+<section class="produtos hb-pattern">
 
 <!-- pai afasta de mim esse calice (a ponte) -->
 <!-- eu no sabo oq estou fazendo pfv piedade da minha alma -->
@@ -72,7 +72,11 @@
         <!-- Card 1 -->
         <div class="col-12 col-md-4">
             <div class="card h-100 shadow-sm border-0">
-                <img src="imgs/figura1.jpg" class="card-img-top" alt="Figura 1">
+                <span class="hb-tag hb-tag-accent">Mais vendido</span>
+                <div class="hb-photo-frame">
+                    <img src="imgs/figura1.jpg" alt="Figura 1">
+                    <span class="hb-seal hb-seal-sm"><i class="bi bi-heart-fill"></i></span>
+                </div>
                 <div class="card-body text-center">
                     <h5 class="card-title fw-bold">Figura 1</h5>
                     <p class="card-text text-muted">Descrição da Figura 1.</p>
@@ -85,7 +89,10 @@
         <!-- Card 2 -->
         <div class="col-12 col-md-4">
             <div class="card h-100 shadow-sm border-0">
-                <img src="imgs/figura1.jpg" class="card-img-top" alt="Figura 2">
+                <div class="hb-photo-frame">
+                    <img src="imgs/figura1.jpg" alt="Figura 2">
+                    <span class="hb-seal hb-seal-sm"><i class="bi bi-heart-fill"></i></span>
+                </div>
                 <div class="card-body text-center">
                     <h5 class="card-title fw-bold">Figura 2</h5>
                     <p class="card-text text-muted">Descrição da Figura 2.</p>
@@ -98,7 +105,11 @@
         <!-- Card 3 -->
         <div class="col-12 col-md-4">
             <div class="card h-100 shadow-sm border-0">
-                <img src="imgs/figura1.jpg" class="card-img-top" alt="Figura 3">
+                <span class="hb-tag">Novo</span>
+                <div class="hb-photo-frame">
+                    <img src="imgs/figura1.jpg" alt="Figura 3">
+                    <span class="hb-seal hb-seal-sm"><i class="bi bi-heart-fill"></i></span>
+                </div>
                 <div class="card-body text-center">
                     <h5 class="card-title fw-bold">Figura 3</h5>
                     <p class="card-text text-muted">Descrição da Figura 3.</p>
@@ -111,6 +122,12 @@
     </div> 
 
 </div> 
+
+<section class="promo-strip">
+    <div class="container">
+        <p>💛 Feito com carinho pra colecionadores — frete grátis nas compras acima de R$ 200</p>
+    </div>
+</section>
 
 <?php
     require_once 'includes/footer.php';

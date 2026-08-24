@@ -13,19 +13,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <style>
-       
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-        
-        h1, h2, h3, h4, h5, h6, 
-        .navbar-brand, 
-        .btn, 
-        .section-title {
-            font-family: 'Fredoka', sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>

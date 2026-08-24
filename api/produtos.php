@@ -1,8 +1,4 @@
 <?php
-/**
- * API acaba aqui, devolve dados
- * em JSON pro TypeScript do dashboard consumir com fetch().
- */
 
 header('Content-Type: application/json; charset=utf-8');
 require '../includes/db.php';
@@ -16,7 +12,7 @@ try {
 
     $produtos = $pdo->query($sql)->fetchAll();
 
-    // devolve um formato previsível: { sucesso, produtos }
+    // Sempre devolve um formato previsível: { sucesso, produtos }
     echo json_encode([
         'sucesso' => true,
         'produtos' => $produtos,

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "none",
+    "ignoreDeprecations": "6.0",
+    "lib": ["ES2017", "DOM"],
+    "rootDir": "ts",
+    "outDir": "admin/js",
+    "strict": true,
+    "noImplicitAny": true,
+    "sourceMap": true
+  },
+  "include": ["ts/**/*.ts"]
+}
