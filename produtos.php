@@ -4,7 +4,7 @@
     require_once 'includes/header.php';
     require_once 'includes/nav.php';
 
-    // Lista de produtos (depois isso vem do banco de dados)
+    // Lista de produtos 
     $produtos = [
         ["nome" => "Figura 1", "descricao" => "Descrição da Figura 1.", "preco" => 299.99, "img" => "imgs/figura1.jpg"],
         ["nome" => "Figura 2", "descricao" => "Descrição da Figura 2.", "preco" => 199.99, "img" => "imgs/figura1.jpg"],
