@@ -142,19 +142,75 @@ function mapearParaExibicao(produtos) {
     });
 }
 
-    produtos.forEach((produto) => {
+// -- escreve tudo na tela - card e a tabela
+
+function renderizarDashboard(produtos) {
+    definirTexto('card-total-produtos', produtos.length.toString());
+    const faturamento = calcularFaturamentoTotal(produtos);
+    definirTexto('card-faturamento', formatarMoeda(faturamento));
+    const corpoTabela = document.getElementById('tabela-produtos-corpo');
+    if (!corpoTabela)
+        return;
+
+    // -- limpa oq tinha antes trocando os 'filhos' sem usar o innerHTML
+
+    corpoTabela.replaceChildren();
+    if (produtos.length === 0) {
+        // caso o catálogo esteja vazio
+        // mostra um aviso em vez de deixar a tabela em branco
+        const linhaVazia = document.createElement('tr');
+        const celula = document.createElement('td');
+        celula.colSpan = 6;
+        celula.className = 'text-center text-muted py-4';
+        celula.textContent = 'Nenhum produto encontrado para esse filtro.';
+        linhaVazia.appendChild(celula);
+        corpoTabela.appendChild(linhaVazia);
+        return;
+    }
+     const paraExibir = mapearParaExibicao(produtos);
+    paraExibir.forEach((item) => {
         const linha = document.createElement('tr');
-        const faturamentoProduto = Number(produto.preco) * produto.vendas;
-        linha.innerHTML = `
-            <td>${produto.nome}</td>
-            <td><span class="badge bg-secondary">${produto.categoria_nome}</span></td>
-            <td>${formatarMoeda(Number(produto.preco))}</td>
-            <td>${produto.vendas}</td>
-            <td>${formatarMoeda(faturamentoProduto)}</td>
-        `;
+        linha.style.cursor = 'pointer';
+        linha.addEventListener('click', () => abrirDetalhesProduto(item));
+        const tdNome = document.createElement('td');
+        tdNome.textContent = item.nome;
+        const tdCategoria = document.createElement('td');
+        const badgeCategoria = document.createElement('span');
+        badgeCategoria.className = 'badge bg-secondary';
+        badgeCategoria.textContent = item.categoriaNome;
+        tdCategoria.appendChild(badgeCategoria);
+        const tdStatus = document.createElement('td');
+        const badgeStatus = document.createElement('span');
+        badgeStatus.className = `badge ${classeBadgeStatus(item.statusEstoque)}`;
+        badgeStatus.textContent = item.statusEstoque;
+        tdStatus.appendChild(badgeStatus);
+        const tdPreco = document.createElement('td');
+        tdPreco.textContent = item.precoFormatado;
+        const tdVendas = document.createElement('td');
+        tdVendas.textContent = item.vendas.toString();
+        const tdFaturamento = document.createElement('td');
+        tdFaturamento.textContent = item.faturamentoFormatado;
+        linha.append(tdNome, tdCategoria, tdStatus, tdPreco, tdVendas, tdFaturamento);
         corpoTabela.appendChild(linha);
     });
+
+    // -- modal do Bootstrap com os detalhes do produto clicado
+    function abrirDetalhesProduto(item) {
+    definirTexto('modal-produto-nome', item.nome);
+    definirTexto('modal-produto-categoria', item.categoriaNome);
+    definirTexto('modal-produto-status', item.statusEstoque);
+    definirTexto('modal-produto-preco', item.precoFormatado);
+    definirTexto('modal-produto-vendas', item.vendas.toString());
+    definirTexto('modal-produto-faturamento', item.faturamentoFormatado);
+    const modalElemento = document.getElementById('modal-detalhes-produto');
+    if (!modalElemento)
+        return;
+    // @ts-ignore — bootstrap.Modal vem do bundle do Bootstrap (carregado
+    // via <script> no _layout_rodape.php)
+    const modal = new bootstrap.Modal(modalElemento);
+    modal.show();
 }
+    
 // --- funçõezinhas de apoio, pra não repetir código em vários lugares ---
 function definirTexto(id, texto) {
     const elemento = document.getElementById(id);
