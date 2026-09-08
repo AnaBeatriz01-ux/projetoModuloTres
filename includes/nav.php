@@ -34,9 +34,12 @@
                 </li>
             </ul>
 
-            <div class="d-flex justify-content-center mt-2 mt-lg-0">
+            <div class="d-flex justify-content-center align-items-center gap-2 mt-2 mt-lg-0">
                 <a href="produtos.php" class="btn btn-outline-danger rounded-pill px-3 fw-bold shadow-sm">
                     <i class="bi bi-bag-heart-fill me-1"></i> Ver Mimos
+                </a>
+                <a href="admin/dashboard.php" class="btn btn-sm btn-outline-secondary rounded-circle" title="Painel Admin" style="width:38px;height:38px;">
+                    <i class="bi bi-gear-fill"></i>
                 </a>
             </div>
         </div>
