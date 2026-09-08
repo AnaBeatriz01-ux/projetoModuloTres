@@ -177,5 +177,3 @@ require '_layout_topo.php';
 </div>
 
 <?php require '_layout_rodape.php'; ?>
-
-

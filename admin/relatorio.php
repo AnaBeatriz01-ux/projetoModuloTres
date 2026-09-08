@@ -20,10 +20,26 @@ $stmt->bindValue(':max', $p_max);
 $stmt->execute();
 $resultado = $stmt->fetchAll();
 
+// depois de um CALL numa procedure, o MySQL/PDO deixa a conexão com
+// um "resultado pendente" mesmo já tendo dado fetchAll() — sem isso,
+// a próxima query ($pdo->query() logo abaixo) trava com o erro
+// "Cannot execute queries while there are pending result sets"
+$stmt->closeCursor();
+
 // Total geral, pra mostrar no topo do relatório
 $valorTotal = array_sum(array_column($resultado, 'preco'));
 
 $categorias = $pdo->query("SELECT * FROM categorias ORDER BY nome")->fetchAll();
+
+// Ranking dos mais vendidos — reaproveita a vw_dashboard_analitico,
+// a mesma view que já usamos no painel (não precisa criar nada novo
+// no banco pra isso!)
+$topVendidos = $pdo->query("
+    SELECT nome, vendas, categoria_nome
+    FROM vw_dashboard_analitico
+    ORDER BY vendas DESC
+    LIMIT 5
+")->fetchAll();
 
 require '_layout_topo.php';
 ?>
@@ -70,6 +86,25 @@ require '_layout_topo.php';
             <div class="text-muted small">valor total somado</div>
         </div>
     </div>
+</div>
+
+<div class="card shadow-sm border-0 p-3 mb-4">
+    <h2 class="fs-5 fw-bold mb-3"><i class="bi bi-trophy-fill text-warning"></i> Top 5 mais vendidos</h2>
+    <?php if (empty($topVendidos)): ?>
+        <p class="text-muted mb-0">Ainda não há vendas registradas.</p>
+    <?php else: ?>
+        <ol class="list-group list-group-numbered">
+            <?php foreach ($topVendidos as $produto): ?>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <?php echo htmlspecialchars($produto['nome']); ?>
+                        <span class="badge bg-secondary ms-2"><?php echo htmlspecialchars($produto['categoria_nome']); ?></span>
+                    </div>
+                    <span class="fw-bold text-danger"><?php echo (int) $produto['vendas']; ?> vendas</span>
+                </li>
+            <?php endforeach; ?>
+        </ol>
+    <?php endif; ?>
 </div>
 
 <div class="card shadow-sm border-0">
